@@ -1,17 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import styled from 'styled-components';
-
-
-const TextComponent = styled.Text`
-  color: #5b3535;
-`;
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Container from './components/Container';
+import Button from './components/Button';
+import '/Users/soss/Desktop/cross/cross-app/css/common.css';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Header></Header>
+      <Container>
+        
+      </Container>
+      <Footer></Footer>
     </View>
   );
 }
