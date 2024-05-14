@@ -1,5 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import styled from 'styled-components';
+
+
+const TextComponent = styled.Text`
+  color: #5b3535;
+`;
 
 export default function App() {
   return (
