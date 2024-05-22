@@ -1,4 +1,4 @@
-.button {
+.btn {
   width: 100%;
   padding: 10px;
   border: #007bff 1px solid;
@@ -12,7 +12,7 @@
   transition: 0.3s;
 }
 
-.button:hover {
+.btn:hover {
   background-color: #007bff;
   color: white;
 }

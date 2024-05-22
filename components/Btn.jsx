@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import "../css/button.css";
+import "../css/btn.css";
+import "../css/modal.css";
 
-const Button = () => {
+const Btn = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
@@ -13,20 +14,10 @@ const Button = () => {
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
-  const buttonStyle = {
-    padding: "10px 20px",
-    backgroundColor: "#007BFF",
-    color: "#fff",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-    fontSize: "16px",
-    textAlign: "center",
-  };
 
   return (
     <div>
-      <div className="button" onClick={toggleModal}>
+      <div className="btn" onClick={toggleModal}>
         만날 사람들을 추가해주세요!
       </div>
 
@@ -54,4 +45,4 @@ const Button = () => {
   );
 };
 
-export default Button;
+export default Btn;
