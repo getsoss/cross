@@ -111,7 +111,7 @@
     {
       "line_num": "01호선",
       "station_cd": "1803",
-      "station_nm": "역곡",
+      "station_nm": "곡",
       "fr_code": "146"
     },
     {
@@ -927,7 +927,7 @@
     {
       "line_num": "05호선",
       "station_cd": "2537",
-      "station_nm": "동대문역사문화공원",
+      "station_nm": "동대문사문화공원",
       "fr_code": "536"
     },
     {
@@ -1137,7 +1137,7 @@
     {
       "line_num": "06호선",
       "station_cd": "2612",
-      "station_nm": "역촌",
+      "station_nm": "촌",
       "fr_code": "611"
     },
     {
@@ -1647,7 +1647,7 @@
     {
       "line_num": "04호선",
       "station_cd": "0426",
-      "station_nm": "서울역",
+      "station_nm": "서울",
       "fr_code": "426"
     },
     {
@@ -1791,7 +1791,7 @@
     {
       "line_num": "04호선",
       "station_cd": "0422",
-      "station_nm": "동대문역사문화공원",
+      "station_nm": "동대문사문화공원",
       "fr_code": "422"
     },
     {
@@ -2097,7 +2097,7 @@
     {
       "line_num": "경의선",
       "station_cd": "1251",
-      "station_nm": "서울역",
+      "station_nm": "서울",
       "fr_code": "P313"
     },
     {
@@ -2601,7 +2601,7 @@
     {
       "line_num": "02호선",
       "station_cd": "0205",
-      "station_nm": "동대문역사문화공원",
+      "station_nm": "동대문사문화공원",
       "fr_code": "205"
     },
     {
@@ -2643,7 +2643,7 @@
     {
       "line_num": "02호선",
       "station_cd": "0221",
-      "station_nm": "역삼",
+      "station_nm": "삼",
       "fr_code": "221"
     },
     {
@@ -3957,7 +3957,7 @@
     {
       "line_num": "공항철도",
       "station_cd": "4201",
-      "station_nm": "서울역",
+      "station_nm": "서울",
       "fr_code": "A01"
     },
     {
@@ -4455,7 +4455,7 @@
     {
       "line_num": "01호선",
       "station_cd": "0150",
-      "station_nm": "서울역",
+      "station_nm": "서울",
       "fr_code": "133"
     },
     {

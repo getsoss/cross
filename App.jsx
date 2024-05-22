@@ -5,12 +5,14 @@ import Footer from "./src/components/Footer";
 import Container from "./src/components/Container";
 import "./css/common.css";
 import { useEffect } from "react";
-import name2code from "./utils/name2code.js";
+import name2code from "./utils/convert/name2code.js";
 
 export default function App() {
   useEffect(() => {
     console.log("===============[TEST]===============");
-    console.log(name2code("서울역"));
+    const v1 = name2code("서울");
+    const v2 = name2code("안양");
+    console.log(`${v1.station_nm} --> ${v2.station_nm}`);
   }, []);
   return (
     <View style={styles.container}>
