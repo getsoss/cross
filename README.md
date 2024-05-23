@@ -25,3 +25,8 @@
 - "react-native-screens": "~3.15.0",
 - "@react-navigation/bottom-tabs": "^6.5.20",
 - "@react-navigation/native": "^6.1.17",
+
+### XML to JSON
+
+- "xml2js": "^0.6.2"
+- "expo-file-system": "~17.0.1"

@@ -111,7 +111,7 @@
     {
       "line_num": "01호선",
       "station_cd": "1803",
-      "station_nm": "곡",
+      "station_nm": "역곡",
       "fr_code": "146"
     },
     {
@@ -1137,7 +1137,7 @@
     {
       "line_num": "06호선",
       "station_cd": "2612",
-      "station_nm": "촌",
+      "station_nm": "역촌",
       "fr_code": "611"
     },
     {
@@ -2643,7 +2643,7 @@
     {
       "line_num": "02호선",
       "station_cd": "0221",
-      "station_nm": "삼",
+      "station_nm": "역삼",
       "fr_code": "221"
     },
     {
