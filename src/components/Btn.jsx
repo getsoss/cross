@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import "../css/btn.css";
-import "../css/modal.css";
+import "../../css/btn.css";
+import "../../css/modal.css";
 
 const Btn = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
