@@ -30,3 +30,8 @@
 
 - "xml2js": "^0.6.2"
 - "expo-file-system": "~17.0.1"
+
+### dijkstra, fileSystem
+
+- "@datastructures-js/priority-queue": "^6.3.1",
+- "fast-xml-parser": "^4.4.0",
