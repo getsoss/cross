@@ -927,7 +927,7 @@
     {
       "line_num": "05호선",
       "station_cd": "2537",
-      "station_nm": "동대문사문화공원",
+      "station_nm": "동대문역사문화공원",
       "fr_code": "536"
     },
     {
@@ -1791,7 +1791,7 @@
     {
       "line_num": "04호선",
       "station_cd": "0422",
-      "station_nm": "동대문사문화공원",
+      "station_nm": "동대문역사문화공원",
       "fr_code": "422"
     },
     {
@@ -2601,7 +2601,7 @@
     {
       "line_num": "02호선",
       "station_cd": "0205",
-      "station_nm": "동대문사문화공원",
+      "station_nm": "동대문역사문화공원",
       "fr_code": "205"
     },
     {

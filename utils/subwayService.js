@@ -31,15 +31,21 @@ function appendEdge(edge, res, wayType = "one-way") {
 
 const pathListForMakeGraph = [
   // 1호선 - 검증완료
+  /*
+  서울역 -> 서울 로 수정
+  */
   ["신창", "연천", "", "2", "two-way"],
   ["병점", "서동탄", "", "2", "two-way"],
   ["금천구청", "광명", "", "2", "two-way"],
   ["구로", "인천", "", "2", "two-way"],
   // 2호선 - 검증완료
+  /*
+  동대문사문화공원 -> 동대문역사문화공원 으로 수정
+  */
   ["성수", "신설동", "", "2", "two-way"],
   ["신도림", "까치산", "", "2", "two-way"],
   ["신도림", "건대입구", "", "2", "two-way"],
-  ["건대입구", "강남", "신도림", "2", "two-way"],
+  ["건대입구", "신도림", "강남", "2", "two-way"],
   // 3호선 - 검증완료
   ["대화", "오금", "", "2", "two-way"],
   // 4호선 - 검증완료
@@ -63,7 +69,7 @@ const pathListForMakeGraph = [
   // 인천2호선  - 검증완료
   ["검단오류", "운연", "", "2", "two-way"],
   // 수인분당선 - 검증완료
-  ["인천", "매탄권선", "청량리", "2", "two-way"],
+  ["인천", "청량리", "매탄권선", "2", "two-way"],
   // 신분당선 - 검증완료
   ["신사", "광교", "", "2", "two-way"],
   // 경의중앙선 - 검증완료
@@ -94,12 +100,17 @@ const pathListForMakeGraph = [
   ["양촌", "김포공항", "", "2", "two-way"],
   // 신림선 - 검증완료
   ["샛강", "관악산", "", "2", "two-way"],
+  // GTX-A
+  /*
+  24.05.24 기준 정보 미제공으로 인한 수동기입
+  */
 ];
 
 async function makeEdgeList() {
   const edge = [];
   try {
     for (const path of pathListForMakeGraph) {
+      console.log(path);
       const res = await getSubwayPath(path);
       await appendEdge(edge, res, path[4]);
     }
@@ -110,10 +121,10 @@ async function makeEdgeList() {
   }
 }
 
-function saveEdgeFile(edge) {
-  const jsonString = JSON.stringify(edge, null, 2);
-  const filaPath = "../assets/data/EDGE.json";
-  fs.writeFileSync(filaPath, jsonString, { encoding: "utf-8" });
+export async function saveJSON(data, name) {
+  const jsonString = JSON.stringify(data, null, 2);
+  const filaPath = `../assets/data/${name}.json`;
+  await fs.writeFileSync(filaPath, jsonString, { encoding: "utf-8" });
 }
 
 async function runSubwayService() {
@@ -122,7 +133,7 @@ async function runSubwayService() {
     console.log("makeDistList");
     const dist = await makeEdgeList();
     console.log("saveEdgeFile");
-    saveEdgeFile(dist);
+    await saveJSON(dist, "EDGE");
   } catch (error) {
     console.log(error);
     throw error;
