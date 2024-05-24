@@ -1,9 +1,9 @@
 import { PriorityQueue } from "@datastructures-js/priority-queue";
-import GRAPH from "../assets/data/GRAPH.json";
+import { readJSON } from "./graphService.js";
 
-function dijkstra(start) {
+function dijkstra(graph, start) {
   const dist = {};
-  for (let node in GRAPH) {
+  for (let node in graph) {
     dist[node] = Infinity;
   }
   dist[start] = 0;
@@ -12,8 +12,8 @@ function dijkstra(start) {
   while (!pq.isEmpty()) {
     let { node: v1, distance: w } = pq.dequeue();
     if (w > dist[v1]) continue;
-    for (let v2 in GRAPH[v1]) {
-      const nw = w + GRAPH[v1][v2];
+    for (let v2 in graph[v1]) {
+      const nw = w + graph[v1][v2];
       if (nw < dist[v2]) {
         dist[v2] = nw;
         pq.enqueue({ node: v2, distance: nw });
@@ -23,17 +23,17 @@ function dijkstra(start) {
   return dist;
 }
 
-async function calcAllDist(starts) {
+async function calcAllDist(graph, starts) {
   let all_dist = {};
   for (let start of starts) {
-    all_dist[start] = dijkstra(start);
+    all_dist[start] = dijkstra(graph, start);
   }
   return all_dist;
 }
 
-function calcTotalDistancesAndVariances(allDistances, starts) {
+function calcTotalDistancesAndVariances(graph, allDistances, starts) {
   let results = {};
-  for (let node in GRAPH) {
+  for (let node in graph) {
     const distances = starts.map((start) => allDistances[start][node]);
     const N = distances.length;
     const totalDistance = distances.reduce((sum, cur) => sum + cur, 0);
@@ -65,8 +65,13 @@ function findTopMeetingPoints(precomputedResults, alpha = 0.5, rank = 10) {
 }
 
 export async function findTopMeetingPoint(starts, alpha = 0.5, rank = 10) {
-  const all_dist = await calcAllDist(starts);
-  const precomputedResults = calcTotalDistancesAndVariances(all_dist, starts);
+  const graph = await readJSON("../assets/data/GRAPH.json");
+  const all_dist = await calcAllDist(graph, starts);
+  const precomputedResults = calcTotalDistancesAndVariances(
+    graph,
+    all_dist,
+    starts
+  );
 
   const topPoints = findTopMeetingPoints(precomputedResults, alpha, rank);
   console.log(`Alpha = ${alpha}: 상위 10개의 중간 지점`);
