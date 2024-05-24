@@ -8,7 +8,6 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
-  "type": "module",
   "dependencies": {
     "@datastructures-js/priority-queue": "^6.3.1",
     "@expo/metro-runtime": "~3.2.1",
@@ -19,6 +18,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.1",
+    "react-native-fs": "^2.20.0",
     "react-native-maps": "1.14.0",
     "react-native-web": "~0.19.10",
     "react-native-xml2js": "^1.0.3",

@@ -5,13 +5,23 @@ import Footer from "./src/components/Footer";
 import Container from "./src/components/Container";
 import "./css/common.css";
 import { useEffect } from "react";
-import { makeGraph, saveGraphDataFile } from "./utils/graphManager.js";
+import getSubwayPath from "./utils/api/getSubwayPath";
+import { findTopMeetingPoint } from "./utils/findMeetingPoint.js";
 
 export default function App() {
-  useEffect(() => {
-    console.log("===============[TEST]===============");
+  useEffect(async () => {
+    console.log("====================[TEST]====================");
 
-    saveGraphDataFile(makeGraph());
+    const response = await getSubwayPath(["안양", "기흥", "", "2", "1"]);
+    const station_list = response.route.sPath[0].pathList;
+    station_list.map((station) =>
+      console.log(`${station.startStationName} --> ${station.endStationName}`)
+    );
+    console.log(getSubwayPath(["안양", "기흥", "", "2", "1"]));
+
+    console.log("==============================================");
+    findTopMeetingPoint(["복정", "고색", "홍대입구"], 0.5, 10);
+    console.log("==============================================");
   }, []);
   return (
     <View style={styles.container}>

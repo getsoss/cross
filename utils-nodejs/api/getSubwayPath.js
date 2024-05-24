@@ -24,7 +24,7 @@ export default async function getSubwayPath(path) {
   try {
     let reqURL = "http://www.seoulmetro.co.kr/kr/getRouteSearchResult.do";
     reqURL += `?departureId=${departureId}&arrivalId=${arrivalId}&sKind=${sKind}&stopId=${stopId}`;
-    // console.log(`[CALL] ${reqURL}`);
+    console.log(`[CALL] ${reqURL}`);
     const xmlData = await fetch(reqURL);
     const jsonData = await XML2JSON(xmlData);
     return jsonData;
