@@ -1,9 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
-
 import Header from "./src/components/Header";
 import Footer from "./src/components/Footer";
 import Container from "./src/components/Container";
-import "./css/common.css";
 import { useEffect } from "react";
 import getSubwayPath from "./utils/api/getSubwayPath";
 import { findTopMeetingPoint } from "./utils/findMeetingPoint.js";
