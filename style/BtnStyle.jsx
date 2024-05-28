@@ -19,9 +19,6 @@ export const btnStyles = StyleSheet.create({
   },
 });
 
-// modalStyles.js
-import { StyleSheet } from 'react-native';
-
 export const modalStyles = StyleSheet.create({
   modalOverlay: {
     position: 'absolute',

@@ -1,5 +1,13 @@
+import React from 'react';
+import { View, Text } from 'react-native';
+import styles from '../../style/HeaderStyle.jsx';
+
 const Header = () => {
-  return <div className="header">헤더입니다</div>;
+  return (
+    <View style={styles.header}>
+      <Text>헤더입니다</Text>
+    </View>
+  );
 };
 
 export default Header;
