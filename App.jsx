@@ -8,18 +8,16 @@ import { findTopMeetingPoint } from "./utils/findMeetingPoint.js";
 
 export default function App() {
   useEffect(async () => {
-    console.log("====================[TEST]====================");
-
-    const response = await getSubwayPath(["안양", "기흥", "", "2", "1"]);
-    const station_list = response.route.sPath[0].pathList;
+    console.log("[경로 가져오기]===========================");
+    const station_list = await getSubwayPath(["안양", "기흥", "", "1"]);
     station_list.map((station) =>
       console.log(`${station.startStationName} --> ${station.endStationName}`)
     );
-    console.log(getSubwayPath(["안양", "기흥", "", "2", "1"]));
 
-    console.log("==============================================");
-    findTopMeetingPoint(["복정", "고색", "홍대입구"], 0.5, 10);
-    console.log("==============================================");
+    console.log("[중간지점 계산]==========================");
+    const start_station_list = ["복정", "고색", "홍대입구"];
+    findTopMeetingPoint(start_station_list, 0.5, 10);
+    console.log("=========================================");
   }, []);
   return (
     <View style={styles.container}>

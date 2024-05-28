@@ -27,7 +27,7 @@ export default async function getSubwayPath(path) {
     // console.log(`[CALL] ${reqURL}`);
     const xmlData = await fetch(reqURL);
     const jsonData = await XML2JSON(xmlData);
-    return jsonData;
+    return jsonData.route.sPath[0].pathList;
   } catch (error) {
     console.error(`[API ERROR] 지하철 경로 가져오기 실패: ${error.message}`);
     throw error;

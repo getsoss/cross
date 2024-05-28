@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
-import { btnStyles, modalStyles } from '/Users/soss/Desktop/cross/cross-app/style/BtnStyle.jsx'; // 스타일 시트 import
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import { btnStyles, modalStyles } from "../../style/BtnStyle"; // 스타일 시트 import
 
 const Btn = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [nameValue, setNameValue] = useState('');
-  const [stationValue, setStationValue] = useState('');
+  const [nameValue, setNameValue] = useState("");
+  const [stationValue, setStationValue] = useState("");
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -23,8 +23,8 @@ const Btn = () => {
     console.log(nameValue);
     console.log(stationValue);
     setIsModalOpen(false);
-    setNameValue('');
-    setStationValue('');
+    setNameValue("");
+    setStationValue("");
   };
 
   return (
@@ -54,7 +54,10 @@ const Btn = () => {
             placeholder="지하철 역을 입력해주세요"
           />
           <View style={modalStyles.modalBottom}>
-            <TouchableOpacity style={modalStyles.modalAppend} onPress={sendData}>
+            <TouchableOpacity
+              style={modalStyles.modalAppend}
+              onPress={sendData}
+            >
               <Text>확인</Text>
             </TouchableOpacity>
           </View>
