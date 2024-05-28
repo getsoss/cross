@@ -5,16 +5,27 @@ import "../css/modal.css";
 
 const Btn = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [nameValue, setNameValue] = useState("");
+  const [stationValue, setStationValue] = useState("");
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+  const handleNameChange = (event) => {
+    setNameValue(event.target.value);
+  };
+  const handleStationChange = (event) => {
+    setStationValue(event.target.value);
   };
 
+  const sendData = () => {
+    console.log(nameValue);
+    console.log(stationValue);
+    setIsModalOpen(!isModalOpen);
+    setNameValue("");
+    setStationValue("");
+  };
   return (
     <div>
       <div className="btn" onClick={toggleModal}>
@@ -31,13 +42,23 @@ const Btn = () => {
                 닫기
               </button>
             </div>
-
             <input
               type="text"
-              value={inputValue}
-              onChange={handleInputChange}
+              value={nameValue}
+              onChange={handleNameChange}
               placeholder="이름을 입력하세요"
             />
+            <input
+              type="text"
+              value={stationValue}
+              onChange={handleStationChange}
+              placeholder="지하철 역을 입력해주세요"
+            />
+            <div className="modal-bottom">
+              <button className="modal-append" onClick={sendData}>
+                확인
+              </button>
+            </div>
           </div>
         </div>
       )}
