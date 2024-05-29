@@ -5,6 +5,7 @@ import Container from "./src/components/Container";
 import { useEffect } from "react";
 import getSubwayPath from "./utils/api/getSubwayPath";
 import { findTopMeetingPoint } from "./utils/findMeetingPoint.js";
+import GoogleMap from "./assets/map/GoogleMap.jsx";
 
 export default function App() {
   useEffect(async () => {
