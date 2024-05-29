@@ -42,6 +42,7 @@ export const modalStyles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 5,
     width: 300,
+    zIndex: 9999,
   },
   modalTop: {
     flexDirection: 'row',
