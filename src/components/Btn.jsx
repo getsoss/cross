@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput } from "react-native";
-import { btnStyles, modalStyles } from "../../style/BtnStyle"; // 스타일 시트 import
+import { View, Text, TouchableOpacity, TextInput, ScrollView, FlatList } from "react-native";
+import { btnStyles, modalStyles } from "../../style/BtnStyle";
+import STATION_CODE from '../../assets/data/STATION_CODE.json';
+
+const Station = () => {
+  const stationNames = STATION_CODE.DATA.map(item => item.station_nm);
+  return stationNames;
+}
 
 const Btn = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [nameValue, setNameValue] = useState("");
   const [stationValue, setStationValue] = useState("");
+  const [filteredStations, setFilteredStations] = useState([]);
+  const [people, setPeople] = useState([]);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -17,14 +25,28 @@ const Btn = () => {
 
   const handleStationChange = (text) => {
     setStationValue(text);
+    if (text) {
+      const stationNames = Station();
+      const filtered = stationNames.filter(station => station.startsWith(text));
+      setFilteredStations(filtered);
+    } else {
+      setFilteredStations([]);
+    }
+  };
+
+  const selectStation = (station) => {
+    setStationValue(station);
+    setFilteredStations([]);
   };
 
   const sendData = () => {
-    console.log(nameValue);
-    console.log(stationValue);
-    setIsModalOpen(false);
-    setNameValue("");
-    setStationValue("");
+    if (nameValue && stationValue) {
+      const newPerson = { name: nameValue, station: stationValue };
+      setPeople([...people, newPerson]);
+      setIsModalOpen(false);
+      setNameValue("");
+      setStationValue("");
+    }
   };
 
   return (
@@ -53,6 +75,18 @@ const Btn = () => {
             onChangeText={handleStationChange}
             placeholder="지하철 역을 입력해주세요"
           />
+          {filteredStations.length > 0 && (
+            <FlatList
+              data={filteredStations}
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({ item }) => (
+                <TouchableOpacity onPress={() => selectStation(item)}>
+                  <Text style={modalStyles.listItem}>{item}</Text>
+                </TouchableOpacity>
+              )}
+              style={modalStyles.autocompleteList}
+            />
+          )}
           <View style={modalStyles.modalBottom}>
             <TouchableOpacity
               style={modalStyles.modalAppend}
@@ -63,6 +97,15 @@ const Btn = () => {
           </View>
         </View>
       )}
+
+      <ScrollView>
+        {people.map((person, index) => (
+          <View key={index} style={modalStyles.listItem}>
+            <Text>이름: {person.name}</Text>
+            <Text>지하철 역: {person.station}</Text>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 };
