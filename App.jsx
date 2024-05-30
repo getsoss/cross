@@ -21,11 +21,8 @@ export default function App() {
     console.log("=========================================");
   }, []);
   return (
-    <View style={styles.container}>
-      <Header></Header>
-      <Container></Container>
-      <Footer></Footer>
-    </View>
+    
+    <GoogleMap/>
   );
 }
 

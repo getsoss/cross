@@ -13,8 +13,7 @@
     "@expo/metro-runtime": "~3.2.1",
     "@react-native-kakao/core": "^2.2.3",
     "@react-native-kakao/map": "^2.2.3",
-    "expo": "^51.0.8",
-    "expo-dev-client": "~4.0.14",
+    "expo": "^51.0.9",
     "expo-file-system": "~17.0.1",
     "expo-status-bar": "~1.12.1",
     "fast-xml-parser": "^4.4.0",
@@ -24,6 +23,7 @@
     "react-native-fs": "^2.20.0",
     "react-native-maps": "1.14.0",
     "react-native-web": "~0.19.10",
+    "react-native-webview": "^13.10.2",
     "react-native-xml2js": "^1.0.3",
     "styled-components": "^6.1.11",
     "xml2js": "^0.6.2"
