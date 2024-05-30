@@ -1,44 +1,74 @@
 import { WebView } from "react-native-webview";
-import { Button, SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
-export default GoogleMap= () => {
+
+export default GoogleMap = () => {
   const [location, setLocation] = useState(`안양역`);
   useEffect(() => console.log(location));
+
+  const handlePress = (type) => {
+    setLocation(`${location.split(" ")[0]} ${type}`);
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flexDirection: "row", flex: 1 }}>
-        <Button
-          style={styles.btn}
-          onPress={() => setLocation(`${location.split(" ")[0]} 맛집`)}
-          title="맛집"
-        />
-        <Button
-          style={styles.btn}
-          onPress={() => setLocation(`${location.split(" ")[0]} 놀거리`)}
-          title="놀거리"
-        />
-        <Button
-          style={styles.btn}
-          onPress={() => setLocation(`${location.split(" ")[0]} 공원`)}
-          title="공원"
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={[styles.button, styles.yellowButton]} onPress={() => handlePress('맛집')}>
+          <Text style={styles.buttonText}>맛집</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.button, styles.cyanButton]} onPress={() => handlePress('놀거리')}>
+          <Text style={styles.buttonText}>놀거리</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.button, styles.greenButton]} onPress={() => handlePress('공원')}>
+          <Text style={styles.buttonText}>공원</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.webViewContainer}>
+        <WebView
+          style={styles.webView}
+          source={{
+            uri: `https://www.google.co.kr/maps/search/${location}/data=!3m1!4b1?hl=ko&entry=ttu`,
+          }}
         />
       </View>
-      <WebView
-        style={styles.container}
-        source={{
-          uri: `https://www.google.co.kr/maps/search/${location}/data=!3m1!4b1?hl=ko&entry=ttu`,
-        }}
-      />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
-  btn: {
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10,
+  },
+  button: {
+    flex: 1,
+    margin: 5,
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  yellowButton: {
+    backgroundColor: '#f0d264',
+  },
+  cyanButton: {
+    backgroundColor: '#7fccde',
+  },
+  greenButton: {
+    backgroundColor: '#9abf7f',
+  },
+  webViewContainer: {
+    flex: 4, // 웹뷰가 더 많은 공간을 차지하게 설정
+  },
+  webView: {
     flex: 1,
   },
 });
+
 // import { WebView } from "react-native-webview";
 // import { SafeAreaView, StyleSheet, View, Alert } from "react-native";
 // import { useEffect, useState } from "react";
