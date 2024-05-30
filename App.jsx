@@ -7,18 +7,18 @@ import getSubwayPath from "./utils/api/getSubwayPath";
 import { findTopMeetingPoint } from "./utils/findMeetingPoint.js";
 
 export default function App() {
-  useEffect(async () => {
-    console.log("[경로 가져오기]===========================");
-    const station_list = await getSubwayPath(["안양", "기흥", "", "1"]);
-    station_list.map((station) =>
-      console.log(`${station.startStationName} --> ${station.endStationName}`)
-    );
+  // useEffect(async () => {
+  //   console.log("[경로 가져오기]===========================");
+  //   const station_list = await getSubwayPath(["안양", "기흥", "", "1"]);
+  //   station_list.map((station) =>
+  //     console.log(`${station.startStationName} --> ${station.endStationName}`)
+  //   );
 
-    console.log("[중간지점 계산]==========================");
-    const start_station_list = ["복정", "고색", "홍대입구"];
-    findTopMeetingPoint(start_station_list, 0.5, 10);
-    console.log("=========================================");
-  }, []);
+  //   console.log("[중간지점 계산]==========================");
+  //   const start_station_list = ["복정", "고색", "홍대입구"];
+  //   findTopMeetingPoint(start_station_list, 0.5, 10);
+  //   console.log("=========================================");
+  // }, []);
   return (
     <View style={styles.container}>
       <Header></Header>
