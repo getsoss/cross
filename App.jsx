@@ -5,7 +5,8 @@ import Container from "./src/components/Container";
 import { useEffect } from "react";
 import getSubwayPath from "./utils/api/getSubwayPath";
 import { findTopMeetingPoint } from "./utils/findMeetingPoint.js";
-import GoogleMap from "./assets/map/GoogleMap.jsx";
+import GoogleMap from "./src/components/map/GoogleMap.jsx";
+// import GoogleMap from ".assets/map/GoogleMap.jsx";
 export default function App() {
   // useEffect(async () => {
   //   console.log("[경로 가져오기]===========================");
@@ -25,7 +26,7 @@ export default function App() {
     //   <Container></Container>
     //   <Footer></Footer>
     // </View>
-    <GoogleMap/>
+    <GoogleMap />
   );
 }
 

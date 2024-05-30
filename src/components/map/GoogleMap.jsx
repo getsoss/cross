@@ -1,5 +1,11 @@
 import { WebView } from "react-native-webview";
-import { SafeAreaView, StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { useEffect, useState } from "react";
 
 export default GoogleMap = () => {
@@ -13,13 +19,22 @@ export default GoogleMap = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={[styles.button, styles.yellowButton]} onPress={() => handlePress('맛집')}>
+        <TouchableOpacity
+          style={[styles.button, styles.yellowButton]}
+          onPress={() => handlePress("맛집")}
+        >
           <Text style={styles.buttonText}>맛집</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.cyanButton]} onPress={() => handlePress('놀거리')}>
+        <TouchableOpacity
+          style={[styles.button, styles.cyanButton]}
+          onPress={() => handlePress("놀거리")}
+        >
           <Text style={styles.buttonText}>놀거리</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.greenButton]} onPress={() => handlePress('공원')}>
+        <TouchableOpacity
+          style={[styles.button, styles.greenButton]}
+          onPress={() => handlePress("공원")}
+        >
           <Text style={styles.buttonText}>공원</Text>
         </TouchableOpacity>
       </View>
@@ -27,7 +42,7 @@ export default GoogleMap = () => {
         <WebView
           style={styles.webView}
           source={{
-            uri: `https://www.google.co.kr/maps/search/${location}/data=!3m1!4b1?hl=ko&entry=ttu`,
+            uri: `https://www.google.co.kr/maps/search/${location}`,
           }}
         />
       </View>
@@ -37,6 +52,7 @@ export default GoogleMap = () => {
 
 const styles = StyleSheet.create({
   buttonContainer: {
+    marginTop: 30,
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 10,
@@ -46,20 +62,20 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 15,
     borderRadius: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
   },
   yellowButton: {
-    backgroundColor: '#f0d264',
+    backgroundColor: "#f0d264",
   },
   cyanButton: {
-    backgroundColor: '#7fccde',
+    backgroundColor: "#7fccde",
   },
   greenButton: {
-    backgroundColor: '#9abf7f',
+    backgroundColor: "#9abf7f",
   },
   webViewContainer: {
     flex: 4, // 웹뷰가 더 많은 공간을 차지하게 설정
@@ -93,20 +109,20 @@ const styles = StyleSheet.create({
 
 // /* 버튼 스타일 */
 // a[class*="btn"] {text-decoration: none;}
-// input[class*="btn"], 
+// input[class*="btn"],
 // button[class*="btn"] {border: 0;}
 
 // /* .btn-two 스타일 */
 // .btn-two {
-// color: white; 
+// color: white;
 // padding: 15px 25px;
 // display: inline-block;
 // border: 1px solid rgba(0,0,0,0.21);
 // border-bottom-color: rgba(0,0,0,0.34);
 // text-shadow: 0 1px 0 rgba(0,0,0,0.15);
-// box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-//             0 2px 0 -1px rgba(0,0,0,0.13), 
-//             0 3px 0 -1px rgba(0,0,0,0.08), 
+// box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset,
+//             0 2px 0 -1px rgba(0,0,0,0.13),
+//             0 3px 0 -1px rgba(0,0,0,0.08),
 //             0 3px 13px -1px rgba(0,0,0,0.21);
 // }
 // .btn-two:active {
@@ -205,20 +221,20 @@ const styles = StyleSheet.create({
 
 //       /* 버튼 스타일 */
 //       a[class*="btn"] {text-decoration: none;}
-//       input[class*="btn"], 
+//       input[class*="btn"],
 //       button[class*="btn"] {border: 0;}
 
 //       /* .btn-two 스타일 */
 //       .btn-two {
-//         color: white; 
+//         color: white;
 //         padding: 15px 25px;
 //         display: inline-block;
 //         border: 1px solid rgba(0,0,0,0.21);
 //         border-bottom-color: rgba(0,0,0,0.34);
 //         text-shadow: 0 1px 0 rgba(0,0,0,0.15);
-//         box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-//                     0 2px 0 -1px rgba(0,0,0,0.13), 
-//                     0 3px 0 -1px rgba(0,0,0,0.08), 
+//         box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset,
+//                     0 2px 0 -1px rgba(0,0,0,0.13),
+//                     0 3px 0 -1px rgba(0,0,0,0.08),
 //                     0 3px 13px -1px rgba(0,0,0,0.21);
 //       }
 //       .btn-two:active {
