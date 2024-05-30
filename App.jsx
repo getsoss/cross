@@ -5,7 +5,6 @@ import Container from "./src/components/Container";
 import { useEffect } from "react";
 import getSubwayPath from "./utils/api/getSubwayPath";
 import { findTopMeetingPoint } from "./utils/findMeetingPoint.js";
-import SubwayInput from "./src/components/SubwayInput.jsx";
 
 export default function App() {
   // useEffect(async () => {
@@ -22,7 +21,9 @@ export default function App() {
   // }, []);
   return (
     <View style={styles.container}>
-      <SubwayInput />
+      <Header></Header>
+      <Container></Container>
+      <Footer></Footer>
     </View>
   );
 }
