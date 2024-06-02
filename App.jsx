@@ -1,17 +1,19 @@
-import { StyleSheet, Text, View } from "react-native";
-import Header from "./src/components/Header";
-import Footer from "./src/components/Footer";
-import Container from "./src/components/Container";
-import { useEffect } from "react";
-import getSubwayPath from "./utils/api/getSubwayPath";
-import { findTopMeetingPoint } from "./utils/findMeetingPoint.js";
-import GoogleMap from "./src/components/map/GoogleMap.jsx";
-import {FirstScreen, SecondScreen, ThirdScreen} from './pages/TabScreen';
-import {NavigationContainer} from '@react-navigation/native';
+// import { useEffect } from "react";
+// import getSubwayPath from "./utils/api/getSubwayPath";
+// import { findTopMeetingPoint } from "./utils/findMeetingPoint.js";
+import {
+  HomeScreen,
+  MeetPointScreen,
+  SurroundPlaceScreen,
+} from "./pages/TabScreen";
+import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-// import GoogleMap from ".assets/map/GoogleMap.jsx";
 const Tab = createBottomTabNavigator();
+const TabIcon = ({ name, size }) => {
+  return <MaterialCommunityIcons name={name} size={size} />;
+};
 
 export default function App() {
   // useEffect(async () => {
@@ -27,27 +29,34 @@ export default function App() {
   //   console.log("=========================================");
   // }, []);
   return (
-    // <View style={styles.container}>
-    //   <Header></Header>
-    //   <Container></Container>
-    //   <Footer></Footer>
-    // </View>
-    //<GoogleMap />
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="1페이지" component={FirstScreen}/>
-        <Tab.Screen name="2페이지" component={SecondScreen}/>
-        <Tab.Screen name="3페이지" component={ThirdScreen}/>
+        <Tab.Screen
+          name="출발지 설정"
+          component={HomeScreen}
+          options={{
+            tabBarLabel: "인원 추가",
+            tabBarIcon: (props) =>
+              TabIcon({ ...props, name: "account-multiple-plus" }),
+          }}
+        />
+        <Tab.Screen
+          name="여기서 만나요!"
+          component={MeetPointScreen}
+          options={{
+            tabBarLabel: "중간 장소",
+            tabBarIcon: (props) => TabIcon({ ...props, name: "map-marker" }),
+          }}
+        />
+        <Tab.Screen
+          name="주변 탐색"
+          component={SurroundPlaceScreen}
+          options={{
+            tabBarLabel: "주변 장소",
+            tabBarIcon: (props) => TabIcon({ ...props, name: "map-outline" }),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
