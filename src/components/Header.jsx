@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import styles from '../../style/HeaderStyle.jsx';
+import React from "react";
+import { View, Text } from "react-native";
+import styles from "../../style/HeaderStyle.jsx";
 
 const Header = () => {
   return (
@@ -11,3 +11,5 @@ const Header = () => {
 };
 
 export default Header;
+
+// 삭제 예정

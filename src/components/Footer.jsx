@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import styles from '../../style/FooterStyle.jsx';
+import React from "react";
+import { View, Text } from "react-native";
+import styles from "../../style/FooterStyle.jsx";
 
 const Footer = () => {
   return (
@@ -11,3 +11,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// 삭제 예정
