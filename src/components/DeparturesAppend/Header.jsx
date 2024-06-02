@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import styles from "../../style/HeaderStyle.jsx";
+import styles from "../../../style/DeparturesAppend/HeaderStyle.jsx";
 
 const Header = () => {
   return (
