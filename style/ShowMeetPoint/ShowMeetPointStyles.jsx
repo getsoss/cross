@@ -20,4 +20,26 @@ export default ShowMeetPointStyles = StyleSheet.create({
     fontSize: 40,
     backgroundColor: "white",
   },
+  text: {
+    fontSize: 20,
+    height: 50,
+    color: "white",
+    lineHeight: 50,
+  },
+  textNo: {
+    paddingHorizontal: 5,
+    backgroundColor: "black",
+  },
+  textLabel: {
+    paddingHorizontal: 5,
+    backgroundColor: "gray",
+  },
+  btn: {
+    margin: 4,
+    backgroundColor: "#4285F4",
+    flexDirection: "row",
+  },
+  scrollView: {
+    width: "100%",
+  },
 });

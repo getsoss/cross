@@ -12,6 +12,8 @@ import {
   SurroundPlaceScreen,
 } from "./src/TabScreen";
 import NavStyles from "./style/NavStyle";
+import { Provider } from "react-redux";
+import store from "./store";
 
 const Tab = createBottomTabNavigator();
 const TabIcon = ({ name }) => {
@@ -31,36 +33,39 @@ export default function App() {
   //   findTopMeetingPoint(start_station_list, 0.5, 10);
   //   console.log("=========================================");
   // }, []);
+
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{ tabBarLabelStyle: NavStyles.screenLabelText }}
-      >
-        <Tab.Screen
-          name="출발지 설정"
-          component={HomeScreen}
-          options={{
-            tabBarLabel: "인원 추가",
-            tabBarIcon: () => <TabIcon name={"account-multiple-plus"} />,
-          }}
-        />
-        <Tab.Screen
-          name="여기서 만나요!"
-          component={MeetPointScreen}
-          options={{
-            tabBarLabel: "중간 장소",
-            tabBarIcon: () => <TabIcon name={"map-marker"} />,
-          }}
-        />
-        <Tab.Screen
-          name="주변 탐색"
-          component={SurroundPlaceScreen}
-          options={{
-            tabBarLabel: "주변 장소",
-            tabBarIcon: () => <TabIcon name={"map-outline"} />,
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={{ tabBarLabelStyle: NavStyles.screenLabelText }}
+        >
+          <Tab.Screen
+            name="출발지 설정"
+            component={HomeScreen}
+            options={{
+              tabBarLabel: "인원 추가",
+              tabBarIcon: () => <TabIcon name={"account-multiple-plus"} />,
+            }}
+          />
+          <Tab.Screen
+            name="여기서 만나요!"
+            component={MeetPointScreen}
+            options={{
+              tabBarLabel: "중간 장소",
+              tabBarIcon: () => <TabIcon name={"map-marker"} />,
+            }}
+          />
+          <Tab.Screen
+            name="주변 탐색"
+            component={SurroundPlaceScreen}
+            options={{
+              tabBarLabel: "주변 장소",
+              tabBarIcon: () => <TabIcon name={"map-outline"} />,
+            }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }

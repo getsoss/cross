@@ -65,16 +65,18 @@ function findTopMeetingPoints(precomputedResults, alpha = 0.5, rank = 10) {
 }
 
 export async function findTopMeetingPoint(starts, alpha = 0.5, rank = 10) {
+  if (starts.length <= 1) return null;
   const all_dist = await calcAllDist(starts);
   const precomputedResults = calcTotalDistancesAndVariances(all_dist, starts);
 
   const topPoints = findTopMeetingPoints(precomputedResults, alpha, rank);
-  console.log(`Alpha = ${alpha}: 상위 10개의 중간 지점`);
-  topPoints.forEach((point) => {
-    console.log(
-      `Node: ${point.node}, Total Distance: ${point.totalDistance}, Variance: ${point.variance}`
-    );
-  });
+  // console.log(`Alpha = ${alpha}: 상위 10개의 중간 지점`);
+  // topPoints.forEach((point) => {
+  //   console.log(
+  //     `Node: ${point.node}, Total Distance: ${point.totalDistance}, Variance: ${point.variance}`
+  //   );
+  // });
+  return topPoints;
 }
 
 // findTopMeetingPoint(["복정", "고색", "홍대입구"], 0.5, 10);

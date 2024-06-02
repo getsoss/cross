@@ -1,6 +1,6 @@
 import DeparturesAppend from "./DeparturesAppend";
 import ShowMeetPoint from "./ShowMeetPoint";
-import SurroundFind from "./components/map/SurroundFind";
+import SurroundFind from "./SurroundFind";
 
 const HomeScreen = () => {
   return <DeparturesAppend />;
