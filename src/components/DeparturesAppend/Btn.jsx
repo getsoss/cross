@@ -1,12 +1,22 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, ScrollView, FlatList } from "react-native";
-import { btnStyles, modalStyles } from "../../style/BtnStyle";
-import STATION_CODE from '../../assets/data/STATION_CODE.json';
+import { useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+  FlatList,
+} from "react-native";
+import {
+  btnStyles,
+  modalStyles,
+} from "../../../style/DeparturesAppend/BtnStyle";
+import STATION_CODE from "../../../assets/data/STATION_CODE.json";
 
 const Station = () => {
-  const stationNames = STATION_CODE.DATA.map(item => item.station_nm);
+  const stationNames = STATION_CODE.DATA.map((item) => item.station_nm);
   return stationNames;
-}
+};
 
 const Btn = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,7 +37,9 @@ const Btn = () => {
     setStationValue(text);
     if (text) {
       const stationNames = Station();
-      const filtered = stationNames.filter(station => station.startsWith(text));
+      const filtered = stationNames.filter((station) =>
+        station.startsWith(text)
+      );
       setFilteredStations(filtered);
     } else {
       setFilteredStations([]);

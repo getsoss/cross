@@ -1,18 +1,21 @@
 // import { useEffect } from "react";
 // import getSubwayPath from "./utils/api/getSubwayPath";
 // import { findTopMeetingPoint } from "./utils/findMeetingPoint.js";
-import {
-  HomeScreen,
-  MeetPointScreen,
-  SurroundPlaceScreen,
-} from "./pages/TabScreen";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+import {
+  HomeScreen,
+  MeetPointScreen,
+  SurroundPlaceScreen,
+} from "./src/TabScreen";
+import NavStyles from "./style/NavStyle";
+
 const Tab = createBottomTabNavigator();
-const TabIcon = ({ name, size }) => {
-  return <MaterialCommunityIcons name={name} size={size} />;
+const TabIcon = ({ name }) => {
+  return <MaterialCommunityIcons name={name} size={30} />;
 };
 
 export default function App() {
@@ -30,14 +33,15 @@ export default function App() {
   // }, []);
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{ tabBarLabelStyle: NavStyles.screenLabelText }}
+      >
         <Tab.Screen
           name="출발지 설정"
           component={HomeScreen}
           options={{
             tabBarLabel: "인원 추가",
-            tabBarIcon: (props) =>
-              TabIcon({ ...props, name: "account-multiple-plus" }),
+            tabBarIcon: () => <TabIcon name={"account-multiple-plus"} />,
           }}
         />
         <Tab.Screen
@@ -45,7 +49,7 @@ export default function App() {
           component={MeetPointScreen}
           options={{
             tabBarLabel: "중간 장소",
-            tabBarIcon: (props) => TabIcon({ ...props, name: "map-marker" }),
+            tabBarIcon: () => <TabIcon name={"map-marker"} />,
           }}
         />
         <Tab.Screen
@@ -53,7 +57,7 @@ export default function App() {
           component={SurroundPlaceScreen}
           options={{
             tabBarLabel: "주변 장소",
-            tabBarIcon: (props) => TabIcon({ ...props, name: "map-outline" }),
+            tabBarIcon: () => <TabIcon name={"map-outline"} />,
           }}
         />
       </Tab.Navigator>
