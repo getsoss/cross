@@ -5,6 +5,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  ScrollView
 } from "react-native";
 import { useEffect, useState } from "react";
 
@@ -18,7 +19,7 @@ export default GoogleMap = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.buttonContainer}>
+      {/* <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={[styles.button, styles.yellowButton]}
           onPress={() => handlePress("맛집")}
@@ -37,7 +38,27 @@ export default GoogleMap = () => {
         >
           <Text style={styles.buttonText}>공원</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
+      <ScrollView horizontal={true} style={styles.scrollView} >
+      <TouchableOpacity
+          style={[styles.button, styles.yellowButton]}
+          onPress={() => handlePress("맛집")}
+        >
+          <Text style={styles.buttonText}>맛집</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.button, styles.cyanButton]}
+          onPress={() => handlePress("놀거리")}
+        >
+          <Text style={styles.buttonText}>놀거리</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.button, styles.greenButton]}
+          onPress={() => handlePress("공원")}
+        >
+          <Text style={styles.buttonText}>공원</Text>
+        </TouchableOpacity>
+      </ScrollView>
       <View style={styles.webViewContainer}>
         <WebView
           style={styles.webView}
@@ -56,6 +77,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 10,
+  },
+  scrollView:{
+    marginTop: 50,
   },
   button: {
     flex: 1,
