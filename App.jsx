@@ -6,7 +6,13 @@ import { useEffect } from "react";
 import getSubwayPath from "./utils/api/getSubwayPath";
 import { findTopMeetingPoint } from "./utils/findMeetingPoint.js";
 import GoogleMap from "./src/components/map/GoogleMap.jsx";
+import {FirstScreen, SecondScreen, ThirdScreen} from './pages/TabScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 // import GoogleMap from ".assets/map/GoogleMap.jsx";
+const Tab = createBottomTabNavigator();
+
 export default function App() {
   // useEffect(async () => {
   //   console.log("[경로 가져오기]===========================");
@@ -26,7 +32,14 @@ export default function App() {
     //   <Container></Container>
     //   <Footer></Footer>
     // </View>
-    <GoogleMap />
+    //<GoogleMap />
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="1페이지" component={FirstScreen}/>
+        <Tab.Screen name="2페이지" component={SecondScreen}/>
+        <Tab.Screen name="3페이지" component={ThirdScreen}/>
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
