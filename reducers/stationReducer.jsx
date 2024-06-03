@@ -26,9 +26,14 @@ const stationReducer = createSlice({
     appendDepartureList: (state, action) => {
       state.departureList.push(action.payload);
     },
+    deleteDepartureList: (state, action) => {
+      state.departureList = state.departureList.filter(
+        (station) => station != action.payload
+      );
+    },
   },
 });
 
-export const { setSelectMeetPoint, appendDepartureList } =
+export const { setSelectMeetPoint, appendDepartureList, deleteDepartureList } =
   stationReducer.actions;
 export default stationReducer.reducer;

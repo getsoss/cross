@@ -14,9 +14,10 @@ import {
   modalStyles,
 } from "../../../style/DeparturesAppend/BtnStyle";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   appendDepartureList,
+  deleteDepartureList,
   removeDepartureItem,
 } from "../../../reducers/stationReducer";
 
@@ -27,6 +28,8 @@ const Station = () => {
 
 const Btn = () => {
   const dispatch = useDispatch();
+
+  const store = useSelector((state) => state.place.departureList);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [nameValue, setNameValue] = useState("");
   const [stationValue, setStationValue] = useState("");
@@ -74,7 +77,7 @@ const Btn = () => {
     const removedPerson = people[index];
     const updatedPeople = people.filter((_, i) => i !== index);
     setPeople(updatedPeople);
-    dispatch(removeDepartureItem(removedPerson.station));
+    dispatch(deleteDepartureList(removedPerson.station));
   };
 
   return (
