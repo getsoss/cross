@@ -1,4 +1,4 @@
-# 🏫 KNU Graduation Guidance
+# 🪧 Cross-App
 
 여러 출발지로부터 이동 시간 기준 최적의 중간 지점을 찾아주는 서비스 입니다.
 
