@@ -15,7 +15,10 @@ import {
 } from "../../../style/DeparturesAppend/BtnStyle";
 
 import { useDispatch } from "react-redux";
-import { appendDepartureList } from "../../../reducers/stationReducer";
+import {
+  appendDepartureList,
+  removeDepartureItem,
+} from "../../../reducers/stationReducer";
 
 const Station = () => {
   const stationNames = STATION_CODE.DATA.map((item) => item.station_nm);
@@ -67,17 +70,24 @@ const Btn = () => {
     }
   };
 
+  const deletePerson = (index) => {
+    const removedPerson = people[index];
+    const updatedPeople = people.filter((_, i) => i !== index);
+    setPeople(updatedPeople);
+    dispatch(removeDepartureItem(removedPerson.station));
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={btnStyles.btn} onPress={toggleModal}>
-        <Text>만날 사람들을 추가해주세요!</Text>
+        <Text style={{ color: "white" }}>만날 사람들을 추가해주세요!</Text>
       </TouchableOpacity>
 
       {isModalOpen && (
         <View style={modalStyles.modalOverlay}>
           <View style={modalStyles.modal}>
             <View style={modalStyles.modalTop}>
-              <Text>모달 창</Text>
+              <Text>이름과 출발역을 적어 주세요!</Text>
               <TouchableOpacity onPress={toggleModal}>
                 <Text style={modalStyles.modalClose}>닫기</Text>
               </TouchableOpacity>
@@ -121,6 +131,12 @@ const Btn = () => {
       <ScrollView>
         {people.map((person, index) => (
           <View key={index} style={styles.personItem}>
+            <TouchableOpacity
+              onPress={() => deletePerson(index)}
+              style={styles.deleteButton}
+            >
+              <Text style={styles.deleteButtonText}>X</Text>
+            </TouchableOpacity>
             <Text style={styles.personText}>이름: {person.name}</Text>
             <Text style={styles.personText}>지하철 역: {person.station}</Text>
           </View>
@@ -151,7 +167,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 15,
     marginVertical: 5,
-    marginHorizontal: 20,
+    marginHorizontal: 40,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -159,6 +175,22 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   personText: {
+    fontSize: 16,
+  },
+  deleteButton: {
+    position: "absolute",
+    top: 10,
+    right: -40,
+    backgroundColor: "red",
+    borderRadius: 15,
+    width: 30,
+    height: 30,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  deleteButtonText: {
+    color: "white",
+    fontWeight: "bold",
     fontSize: 16,
   },
 });
