@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/load.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,11 +15,6 @@
       "supportsTablet": true
     },
     "android": {
-      "config": {
-        "googleMaps": {
-          "apiKey": "AIzaSyCErrl8X561Vyh1ejC2WtSb7U3LfnEEAAM"
-        }
-      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
