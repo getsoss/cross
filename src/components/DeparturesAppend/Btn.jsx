@@ -14,12 +14,16 @@ import {
   modalStyles,
 } from "../../../style/DeparturesAppend/BtnStyle";
 
+import { useDispatch } from "react-redux";
+import { appendDepartureList } from "../../../reducers/stationReducer";
+
 const Station = () => {
   const stationNames = STATION_CODE.DATA.map((item) => item.station_nm);
   return stationNames;
 };
 
 const Btn = () => {
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [nameValue, setNameValue] = useState("");
   const [stationValue, setStationValue] = useState("");
@@ -59,6 +63,7 @@ const Btn = () => {
       setIsModalOpen(false);
       setNameValue("");
       setStationValue("");
+      dispatch(appendDepartureList(newPerson.station));
     }
   };
 

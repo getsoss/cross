@@ -1,5 +1,5 @@
 import { SafeAreaView, ScrollView, View } from "react-native";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import SurroundFindBtn from "./components/map/SurroundFindBtn";
 import GoogleMap from "./components/map/GoogleMap";
 import SurroundFindStyles from "../style/SurroundFind/SurroundFindStyles";
@@ -10,9 +10,9 @@ export default SurroundFind = () => {
   const store = useSelector((state) => state.place);
   const navigationState = useNavigationState((state) => state);
   const [location, setLocation] = useState(store.selectMeetPoint);
-  const handlePress = (type) => {
+  const handlePress = useCallback((type) => {
     setLocation(`${store.selectMeetPoint} 주변 ${type}`);
-  };
+  });
   const surroundPlaceList = store.surroundPlaceList;
   useEffect(() => {
     setLocation(() => store.selectMeetPoint);
