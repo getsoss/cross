@@ -15,7 +15,7 @@ export default ShowMeetPoint = () => {
       if (list) setRankDepartureList(list);
     };
     initList();
-  }, []);
+  }, [departureList]);
 
   return (
     <View style={ShowMeetPointStyles.container}>
