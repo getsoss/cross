@@ -4,7 +4,7 @@ const stationReducer = createSlice({
   name: "place",
   initialState: {
     selectMeetPoint: "",
-    departureList: ["안양", "기흥"],
+    departureList: [],
     surroundPlaceList: [
       "음식점",
       "카페",
@@ -20,19 +20,15 @@ const stationReducer = createSlice({
     ],
   },
   reducers: {
-    setDepartureList: (state, action) => {
-      state.departureList = action.payload;
-    },
     setSelectMeetPoint: (state, action) => {
       state.selectMeetPoint = action.payload;
+    },
+    appendDepartureList: (state, action) => {
+      state.departureList.push(action.payload);
     },
   },
 });
 
-export const {
-  setDepartureList,
-  getDepartureList,
-  setSelectMeetPoint,
-  getSelectMeetPoint,
-} = stationReducer.actions;
+export const { setSelectMeetPoint, appendDepartureList } =
+  stationReducer.actions;
 export default stationReducer.reducer;
