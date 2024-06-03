@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 
 export default ContainerStyle = StyleSheet.create({
   container: {
-    display: "flex",
     alignItems: "center",
-    flexDirection: "column",
+    justifyContent: "center",
+    flex: 1,
   },
 
   text: {
