@@ -72,7 +72,7 @@ const Btn = () => {
         <View style={modalStyles.modalOverlay}>
           <View style={modalStyles.modal}>
             <View style={modalStyles.modalTop}>
-              <Text>모달 창</Text>
+              <Text>이름과 출발역을 적어 주세요!</Text>
               <TouchableOpacity onPress={toggleModal}>
                 <Text style={modalStyles.modalClose}>닫기</Text>
               </TouchableOpacity>
